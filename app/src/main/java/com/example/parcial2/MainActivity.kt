@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                     character?.forEach{
                         listRyM.add(it)
                     }
-
+                    adapter.notifyDataSetChanged()
                 }
             }
         }
@@ -62,6 +62,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val BASE_URL = "https://rickandmortyapi.com/api/"
-        const val ALL_CHARACTER = "character"
+        const val ALL_CHARACTER = "https://rickandmortyapi.com/api/character"
     }
 }
