@@ -1,23 +1,33 @@
 package com.example.parcial2
 
-import android.content.DialogInterface.OnClickListener
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+
+
 
 class Adapter (private val rym : List<MyResult>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     lateinit var onItemClickListener: (MyResult) -> Unit
 
     inner class ViewHolder (val view : View) : RecyclerView.ViewHolder(view) {
-        private val tvMag: TextView = view.findViewById(R.id.textViewMag)
-        private val tvPlace: TextView = view.findViewById(R.id.textViewPlace)
+        private val nombre: TextView = view.findViewById(R.id.textViewName)
+        private val avatar: ImageView = view.findViewById((R.id.imageViewAvatar))
+
 
         fun bind(result: MyResult) {
-            tvMag.text = result.name
-            tvPlace.text = result.species
+            nombre.text = result.name
+
+            Glide.with(view)
+                .load(result.image)
+                .into(avatar)
+
+
 
             view.setOnClickListener {
                 onItemClickListener(result)
@@ -35,7 +45,7 @@ class Adapter (private val rym : List<MyResult>) : RecyclerView.Adapter<Adapter.
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val quake = rym[position]
-        holder.bind(quake)
+        val character = rym[position]
+        holder.bind(character)
     }
 }

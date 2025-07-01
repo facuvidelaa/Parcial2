@@ -8,4 +8,7 @@ interface ApiService {
 
     @GET
     suspend fun getAllCharacters(@Url url: String): Response<CharacterResponse>
+
+
+
 }

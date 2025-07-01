@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -44,6 +45,9 @@ dependencies {
 
     //coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3")
+
+    //Glide
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
